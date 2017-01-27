@@ -1,7 +1,7 @@
 # congenial-couscous
 
 ## [Tutorial Completion](https://www.clearpathrobotics.com/assets/guides/ros/ROS%20Navigation%20Basics.html)
-- [ ] [Roger Gomes](https://github.com/RogerGomes29) (leader)
+- [X] [Roger Gomes](https://github.com/RogerGomes29) (leader)
 - [ ] [Ian Wakely](https://github.com/raveious)
 - [X] [Prithvi Kambhampati](https://github.com/PrithviKambhampati)
 
