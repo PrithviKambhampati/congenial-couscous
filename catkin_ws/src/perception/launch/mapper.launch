@@ -7,7 +7,7 @@
     <arg name="gui" value="true" />
     <arg name="use_sim_time" value="true" />
     <arg name="headless" value="false" /> -->
-    <arg name="world_name" value="$(find perception)/jackal_empty_world.sdf" />
+    <arg name="world_name" value="$(find perception)/project3.world" />
   </include>
 
   <include file="$(find jackal_description)/launch/description.launch">
