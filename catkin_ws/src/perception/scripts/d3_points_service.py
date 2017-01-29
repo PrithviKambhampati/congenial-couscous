@@ -8,7 +8,7 @@ import math
 
 
 def generate_d3_points(req):
-    print('Got a request')
+    rospy.logdebug('Got a request')
 
     tf_list = tf.TransformListener()
     trans = None
@@ -36,13 +36,14 @@ def generate_d3_points(req):
         p.pose.orientation.z = 0
         p.pose.orientation.w = 1
 
+    rospy.logdebug('Responding with: ', dest)
     return D3PointsResponse(destinations=dest)
 
 def D3Points_server():
     rospy.init_node('d3_points_server')
 
     s = rospy.Service('d3_points', D3Points, generate_d3_points)
-    print("Ready to generate D3 points.")
+    rospy.loginfo("Ready to generate D3 points.")
 
     rospy.spin()
 
