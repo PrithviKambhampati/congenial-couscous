@@ -1,0 +1,12 @@
+[submodule "catkin_ws/src/jackal"]
+	path = catkin_ws/src/jackal
+	url = git@github.com:jackal/jackal.git
+[submodule "catkin_ws/src/jackal_simulator"]
+	path = catkin_ws/src/jackal_simulator
+	url = git@github.com:jackal/jackal_simulator.git
+[submodule "catkin_ws/src/LMS1xx"]
+	path = catkin_ws/src/LMS1xx
+	url = git@github.com:clearpathrobotics/LMS1xx.git
+[submodule "catkin_ws/src/pointgrey_camera_driver"]
+	path = catkin_ws/src/pointgrey_camera_driver
+	url = git@github.com:ros-drivers/pointgrey_camera_driver.git
