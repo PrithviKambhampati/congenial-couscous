@@ -27,8 +27,8 @@ def generate_d3_points(req):
         p.header.frame_id = '/base_link'
         p.header.stamp = rospy.Time.now()
 
-        p.pose.position.x = math.cos(2 * math.pi / req.points * i) * radius
-        p.pose.position.y = math.sin(2 * math.pi / req.points * i) * radius
+        p.pose.position.x = math.cos(2 * math.pi / req.points * i) * radius + trans[0]
+        p.pose.position.y = math.sin(2 * math.pi / req.points * i) * radius + trans[1]
         p.pose.position.z = 0
 
         p.pose.orientation.x = 0
