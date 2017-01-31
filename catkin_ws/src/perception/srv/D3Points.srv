@@ -1,3 +1,4 @@
 int32 points
+float32 radius
 ---
-geometry_msgs/PoseStamped[] destinations
+move_base_msgs/MoveBaseGoal[] destinations
