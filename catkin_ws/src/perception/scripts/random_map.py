@@ -86,7 +86,7 @@ if __name__ == "__main__":
                 twist.angular.z = 0 
 	        pub.publish(twist)
     	    rate.sleep()
-	rospy.is_shutdown()
+	#rospy.is_shutdown()
 	#map
     except rospy.ROSInterruptException:
 	pass
