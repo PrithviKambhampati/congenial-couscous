@@ -13,6 +13,7 @@ def generate_d3_points(req):
     trans = None
     rot = None
     radius = 1
+    dest = []
 
     while not (trans and rot):
         try:
@@ -21,18 +22,20 @@ def generate_d3_points(req):
         except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException):
             continue
 
-    dest = [PoseStamped()] * (req.points)
-    for i, p in enumerate(dest):
-        p.header.frame_id = 'map'
+    for i in xrange(0, req.points):
+        pt = PoseStamped()
+        pt.header.frame_id = 'map'
 
-        p.pose.position.x = math.cos(2 * math.pi / req.points * i) * radius + trans[0]
-        p.pose.position.y = math.sin(2 * math.pi / req.points * i) * radius + trans[1]
-        p.pose.position.z = 0
+        pt.pose.position.x = math.cos(2 * math.pi / req.points * i) * radius + trans[0]
+        pt.pose.position.y = math.sin(2 * math.pi / req.points * i) * radius + trans[1]
+        pt.pose.position.z = 0
 
-        p.pose.orientation.x = 0
-        p.pose.orientation.y = 0
-        p.pose.orientation.z = 0
-        p.pose.orientation.w = 1
+        pt.pose.orientation.x = 0
+        pt.pose.orientation.y = 0
+        pt.pose.orientation.z = 0
+        pt.pose.orientation.w = 1
+
+        dest.append(pt)
 
     rospy.logdebug('Responding with: ', dest)
     return D3PointsResponse(destinations=dest)
