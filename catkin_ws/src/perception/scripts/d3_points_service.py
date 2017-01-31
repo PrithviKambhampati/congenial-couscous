@@ -6,7 +6,6 @@ import rospy
 import tf
 import math
 
-
 def generate_d3_points(req):
     rospy.logdebug('Got a request')
 
@@ -24,8 +23,7 @@ def generate_d3_points(req):
 
     dest = [PoseStamped()] * (req.points)
     for i, p in enumerate(dest):
-        p.header.frame_id = '/base_link'
-        p.header.stamp = rospy.Time.now()
+        p.header.frame_id = 'map'
 
         p.pose.position.x = math.cos(2 * math.pi / req.points * i) * radius + trans[0]
         p.pose.position.y = math.sin(2 * math.pi / req.points * i) * radius + trans[1]
