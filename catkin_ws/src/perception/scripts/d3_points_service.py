@@ -26,8 +26,8 @@ def generate_d3_points(req):
         pt = MoveBaseGoal()
         pt.target_pose.header.frame_id = 'map'
 
-        pt.target_pose.pose.position.x = math.cos(2 * math.pi / 8 * i) * radius
-        pt.target_pose.pose.position.y = math.sin(2 * math.pi / 8 * i) * radius
+        pt.target_pose.pose.position.x = math.cos(2 * math.pi / req.points * i) * radius + trans[0]
+        pt.target_pose.pose.position.y = math.sin(2 * math.pi / req.points * i) * radius + trans[1]
         pt.target_pose.pose.position.z = 0
 
         pt.target_pose.pose.orientation.x = 0
