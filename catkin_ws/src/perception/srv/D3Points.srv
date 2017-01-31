@@ -1,3 +1,4 @@
 int32 points
+float32 radius
 ---
 move_base_msgs/MoveBaseGoal[] destinations
