@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import roslib; roslib.load_manifest('perception')
 from perception.srv import *
-from geometry_msgs.msg import PoseStamped
+from move_base_msgs.msg import MoveBaseGoal
 import rospy
 import tf
 import math
@@ -21,18 +21,18 @@ def generate_d3_points(req):
         except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException):
             continue
 
-    dest = [PoseStamped()] * (req.points)
+    dest = [MoveBaseGoal()] * (req.points)
     for i, p in enumerate(dest):
-        p.header.frame_id = 'map'
+        p.target_pose.header.frame_id = 'map'
 
-        p.pose.position.x = math.cos(2 * math.pi / req.points * i) * radius + trans[0]
-        p.pose.position.y = math.sin(2 * math.pi / req.points * i) * radius + trans[1]
-        p.pose.position.z = 0
+        p.target_pose.pose.position.x = math.cos(2 * math.pi / req.points * i) * radius + trans[0]
+        p.target_pose.pose.position.y = math.sin(2 * math.pi / req.points * i) * radius + trans[1]
+        p.target_pose.pose.position.z = 0
 
-        p.pose.orientation.x = 0
-        p.pose.orientation.y = 0
-        p.pose.orientation.z = 0
-        p.pose.orientation.w = 1
+        p.target_pose.pose.orientation.x = 0
+        p.target_pose.pose.orientation.y = 0
+        p.target_pose.pose.orientation.z = 0
+        p.target_pose.pose.orientation.w = 1
 
     rospy.logdebug('Responding with: ', dest)
     return D3PointsResponse(destinations=dest)

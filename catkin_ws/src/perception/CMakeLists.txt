@@ -9,6 +9,8 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   geometry_msgs
+  move_base_msgs
+  actionlib_msgs
   message_generation
 )
 
@@ -70,6 +72,7 @@ generate_messages(
  DEPENDENCIES
  std_msgs
  geometry_msgs
+ move_base_msgs
 )
 
 ################################################
@@ -104,7 +107,7 @@ generate_messages(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES perception
-  CATKIN_DEPENDS message_runtime roscpp rospy std_msgs geometry_msgs
+  CATKIN_DEPENDS message_runtime roscpp rospy std_msgs geometry_msgs move_base_msgs
 #  DEPENDS system_lib
 )
 
