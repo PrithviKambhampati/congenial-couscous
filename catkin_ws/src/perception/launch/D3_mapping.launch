@@ -1,0 +1,6 @@
+<launch>
+  <include file="$(find perception)/launch/mapper.launch" />
+
+  <node pkg="perception" name="d3_points_server" type="d3_points_service.py"  output="screen"/>
+  <node pkg="perception" name="d3_nav" type="d3_nav.py"  output="screen"/>
+</launch>
